@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I'm Sorry ❤️</title>
+  <style>
+    :root {
+      --bg-color: #fff0f3;
+      --card-bg: #ffffff;
+      --primary: #ff4d6d;
+      --primary-hover: #ff758f;
+      --text-color: #590d22;
+      --accent: #ffb3c1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(255, 77, 109, 0.15);
+      text-align: center;
+      position: relative;
+    }
+
+    .section {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out forwards;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sticker / Gif */
+    .sticker {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin: 10px auto;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    /* Buttons */
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    button.secondary {
+      background-color: #f0f0f0;
+      color: #666;
+    }
+
+    /* Envelope */
+    .envelope-box {
+      cursor: pointer;
+      margin: 30px auto;
+      font-size: 50px;
+      padding: 30px;
+      background: #fff0f3;
+      border: 2px dashed var(--accent);
+      border-radius: 16px;
+      transition: transform 0.2s;
+    }
+
+    .envelope-box:hover {
+      transform: scale(1.05);
+    }
+
+    .letter-card {
+      background: #fff8f9;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--accent);
+      text-align: left;
+    }
+
+    /* Progress Meter */
+    .meter-container {
+      background: #f0f0f0;
+      border-radius: 20px;
+      height: 20px;
+      width: 100%;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .meter-fill {
+      background: var(--primary);
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .heart-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    }
+
+    /* Final Message Box */
+    .final-card {
+      background: #fff8f9;
+      border: 1px solid var(--accent);
+      padding: 20px;
+      border-radius: 16px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- SLIDE 1 -->
+    <div class="section active" id="slide1">
+      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHY5bXFjcThycWFoZjZvZmdkMWJjc3Yxd3dqNXZrbHZndmtzMHpxeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1dkpS5YqwVaM63a/giphy.gif" class="sticker" alt="Sad Cute Bear">
+      <h2>I Know I Hurt You</h2>
+      <p>I messed up... and I'm really sorry for that. 🥺</p>
+      <div class="btn-container">
+        <button onclick="nextSlide('slide2')">Next →</button>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="section" id="slide2">
+      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z0bjVsODd6a3Uxa3o3cmx2bnRhZDF2aHdtZnE3b3p4M3llZmsyciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/KxtjPgBHlLZS2N9drL/giphy.gif" class="sticker" alt="Hug">
+      <h2>You Mean Everything</h2>
+      <p>I promise I'll be better for you. 💕</p>
+      <div class="btn-container">
+        <button class="secondary" onclick="nextSlide('slide1')">← Back</button>
+        <button onclick="nextSlide('slide3')">Next →</button>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: Sealed Envelope -->
+    <div class="section" id="slide3">
+      <h2>A Virtual Peace Offering 💌</h2>
+      <div class="envelope-box" id="envelope" onclick="openLetter()">
+        ✉️
+        <p style="margin-top: 10px; font-size: 0.85rem; font-weight: bold;">CLICK TO OPEN</p>
+      </div>
+      
+      <div class="letter-card" id="letter" style="display: none;">
+        <h3 style="color: var(--primary); margin-bottom: 10px;">My Dearest,</h3>
+        <p style="color: #444; font-size: 0.9rem; margin-bottom: 0;">
+          I’m really sorry for everything. I know I made a mistake, and I hate the fact that I hurt you. You mean the world to me. Please don't stay upset with me for too long—it feels empty without you! 🥺❤️
+        </p>
+        <div class="btn-container" style="margin-top: 15px;">
+          <button onclick="nextSlide('slide4')">Continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: Forgiveness Meter -->
+    <div class="section" id="slide4">
+      <h2>Forgiveness Meter ❤️</h2>
+      <p id="meterText">0% FORGIVEN</p>
+      
+      <div class="meter-container">
+        <div class="meter-fill" id="meterFill"></div>
+      </div>
+
+      <p style="font-size: 0.8rem;">TAP THE HEART TO HEAL MY HEART!</p>
+      <button class="heart-btn" onclick="increaseForgiveness()">❤️</button>
+
+      <div class="btn-container" id="meterNextBtn" style="display: none; margin-top: 20px;">
+        <button onclick="nextSlide('slide5')">See Final Note →</button>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: Final Apology Text -->
+    <div class="section" id="slide5">
+      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3Byd3N1MW9ybmF3YmNtdnE1OG9pZXhnbXZpY29hZzJ6bzF2aGlnbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26BRv0ThflsHCqDrG/giphy.gif" class="sticker" alt="Happy Love">
+      <h2>Thank You ❤️</h2>
+      
+      <div class="final-card">
+        <p style="color: #444; font-size: 0.95rem; margin-bottom: 0; text-align: left; line-height: 1.5;">
+         If you can find it in your heart to forgive me, I will be forever grateful. You are the most important person in my life, and I want to make things right. ✨
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Navigation Control
+    function nextSlide(slideId) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(slideId).classList.add('active');
+    }
+
+    // Open Letter Animation
+    function openLetter() {
+      document.getElementById('envelope').style.display = 'none';
+      document.getElementById('letter').style.display = 'block';
+    }
+
+    // Forgiveness Meter Mechanics
+    let progress = 0;
+    function increaseForgiveness() {
+      if (progress < 100) {
+        progress += 20;
+        if (progress > 100) progress = 100;
+        
+        document.getElementById('meterFill').style.width = progress + '%';
+        document.getElementById('meterText').innerText = progress + '% FORGIVEN';
+
+        if (progress === 100) {
+          document.getElementById('meterText').innerText = "100% FORGIVEN! 🎉";
+          document.getElementById('meterNextBtn').style.display = 'flex';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
